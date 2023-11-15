@@ -9,9 +9,22 @@ public class DigitalVideoDisc {
 		private int lenght;
 		private float cost;
 		
+		//Luong Hai Dang - 20210151
+		// khoi tao thanh vien lop ( class member )
+		private static int nbDigitalVideoDiscs = 0; 
+		private int id;
+		
+		public int getId() {
+			return id;
+		}
+
 		// Constructor methods
-		public DigitalVideoDisc(String title) {
+		public DigitalVideoDisc(String title, String string, String string2, int i, float f) {
 			super();
+			this.title = title;
+			this.category = string;
+			this.director = string2;
+			this.cost = cost;
 			this.title = title;
 		}
 		public DigitalVideoDisc(String title, String category, float cost) {
@@ -19,6 +32,7 @@ public class DigitalVideoDisc {
 			this.title = title;
 			this.category = category;
 			this.cost = cost;
+			this.id = nbDigitalVideoDiscs++;
 		}
 		public DigitalVideoDisc(String title, String category, int lenght, float cost) {
 			super();
@@ -26,6 +40,7 @@ public class DigitalVideoDisc {
 			this.category = category;
 			this.lenght = lenght;
 			this.cost = cost;
+			this.id = nbDigitalVideoDiscs++;
 		}
 		public DigitalVideoDisc(String title, String category, String director, float cost) {
 			super();
@@ -33,6 +48,7 @@ public class DigitalVideoDisc {
 			this.category = category;
 			this.director = director;
 			this.cost = cost;
+			this.id = nbDigitalVideoDiscs++;
 		}
 		
 		//Luong Hai Dang - 20210151
@@ -52,7 +68,9 @@ public class DigitalVideoDisc {
 		public float getCost() {
 			return cost;
 		}
-		
+		public String setTitle(String title) {
+			return this.title=title;
+		}
 		@Override
 		//Luong Hai Dang - 20210151
 		// equal method

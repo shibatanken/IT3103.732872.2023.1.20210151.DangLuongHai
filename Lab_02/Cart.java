@@ -29,6 +29,35 @@ public class Cart {
 				System.out.println("Luong Hai Dang - 20210151: Khong tim thay san pham !");
 				return;
 	}
+	
+	public void addDigitalVideoDisc(DigitalVideoDisc[] listDvd) {
+		if(qtyOrdered<MAX_NUMBER_ORDERED) { // co the them item
+			qtyOrdered++;
+			for(int i=0;i<listDvd.length;i++) {
+				itemsOrdered[qtyOrdered]= listDvd[i];	
+			}
+			System.out.println("Luong Hai Dang - 20210151: Da them san pham vao gio hang !");
+
+		}
+		else { // gio hang da full
+			System.out.println("Luong Hai Dang - 20210151: Gio hang cua ban da day !");
+		}
+	}
+	
+	
+	public void addDigitalVideoDisc(DigitalVideoDisc dvd1,DigitalVideoDisc dvd2) {
+		if(qtyOrdered<MAX_NUMBER_ORDERED-1) { // co the them item
+			qtyOrdered +=2 ;
+			itemsOrdered[qtyOrdered]=dvd1;
+			itemsOrdered[qtyOrdered]=dvd2;
+			System.out.println("Luong Hai Dang - 20210151: Da them san pham vao gio hang !");
+
+		}
+		else { // gio hang da full
+			System.out.println("Luong Hai Dang - 20210151: Gio hang cua ban da day !");
+		}
+	}
+	
 	public float totalCost() {
 		float sum=0;
 		for(int i=1;i<=qtyOrdered;i++) {
@@ -37,5 +66,37 @@ public class Cart {
 		return sum;
 	}
 	
+	// Luong Hai Dang - 20210151
+	
+	public void searchDVDById(int searchId) {
+		for(int i=1;i<=qtyOrdered;i++) {
+	        if (itemsOrdered[i].getId() == searchId) {
+	            System.out.println("Tim thay  " + itemsOrdered[i]);
+	            return;
+	        }
+	    }
+	    System.out.println("Khong tim thay DVD co ID: " + searchId);
 	}
+	public void searchDVDByTitle(String searchTitle) {
+		  for(int i=1;i<=qtyOrdered;i++) {
+	        if (itemsOrdered[i].getTitle()==searchTitle) {
+	            System.out.println("Tim thay  " + itemsOrdered[i]);
+	            return;
+	        }
+	    }
+	    System.out.println("Khong tim thay DVD co Title: " + searchTitle);
+	}
+	
+	// Hoang Hai Phong - 20210151
+	
+	public void print() {
+		float totalcost=0;
+		for(int i=1;i<=qtyOrdered;i++) {
+			System.out.println(itemsOrdered[i]);
+			totalcost+=itemsOrdered[i].getCost();
+			}
+		System.out.println("Total cost:" + totalcost +"$");	
+	
+	}
+}
 
