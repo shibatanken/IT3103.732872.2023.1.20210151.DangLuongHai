@@ -19,8 +19,12 @@ public class DigitalVideoDisc {
 		}
 
 		// Constructor methods
-		public DigitalVideoDisc(String title) {
+		public DigitalVideoDisc(String title, String string, String string2, int i, float f) {
 			super();
+			this.title = title;
+			this.category = string;
+			this.director = string2;
+			this.cost = cost;
 			this.title = title;
 		}
 		public DigitalVideoDisc(String title, String category, float cost) {
